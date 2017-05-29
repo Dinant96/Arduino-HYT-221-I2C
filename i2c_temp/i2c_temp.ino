@@ -28,7 +28,7 @@ void loop() {
     int rawHumidity = b1 << 8 | b2;
     // compound bitwise to get 14 bit measurement first two bits
     // are status/stall bit (see intro text)
-    rawHumidity =  (rawHumidity &= 0x3FFF);
+    rawHumidity &= 0x3FFF;
     humidity = 100.0 / pow(2,14) * rawHumidity;
     
     // combine temperature bytes and calculate temperature
